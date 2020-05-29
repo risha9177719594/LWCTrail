@@ -1,0 +1,67 @@
+{
+    "name": "lwc-recipes-oss",
+    "version": "0.2.0",
+    "author": "Salesforce Developer Evangelism",
+    "bugs": "https://github.com/trailheadapps/lwc-recipes-oss/issues",
+    "dependencies": {
+        "compression": "^1.7.4",
+        "express": "^4.17.1",
+        "helmet": "^3.22.0"
+    },
+    "description": "Lightning Web Components Recipes Open Source",
+    "devDependencies": {
+        "@salesforce/wire-service-jest-util": "^2.3.0",
+        "chart.js": "^2.9.3",
+        "d3": "^5.15.0",
+        "husky": "^4.2.3",
+        "jest-canvas-mock": "^2.2.0",
+        "lwc-recipes-oss-ui-components": "^0.3.2",
+        "lint-staged": "^10.2.2",
+        "lwc-services": "^2.0.6",
+        "moment": "^2.25.3",
+        "prettier": "^2.0.2"
+    },
+    "engines": {
+        "node": ">=10.0.0"
+    },
+    "homepage": "https://github.com/trailheadapps/lwc-recipes-oss",
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "keywords": [
+        "lwc"
+    ],
+    "license": "CC0-1.0",
+    "lint-staged": {
+        "**/*.{css,html,js,json,yaml,yml,md}": [
+            "prettier --write"
+        ],
+        "**/modules/**/*.js": [
+            "eslint"
+        ]
+    },
+    "lwc": {
+        "modules": [
+            {
+                "npm": "lwc-recipes-oss-ui-components"
+            }
+        ]
+    },
+    "repository": "trailheadapps/lwc-recipes-oss",
+    "scripts": {
+        "build": "lwc-services build --mode production",
+        "build:development": "lwc-services build",
+        "lint": "eslint ./src/**/*.js",
+        "prettier": "prettier --write \"**/*.{css,html,js,json,md,yaml,yml}\"",
+        "prettier:verify": "prettier --list-different \"**/*.{css,html,js,json,md,yaml,yml}\"",
+        "serve": "node scripts/server.js",
+        "test:unit": "lwc-services test:unit",
+        "test:unit:coverage": "lwc-services test:unit --coverage",
+        "test:unit:debug": "lwc-services test:unit --debug",
+        "test:unit:watch": "lwc-services test:unit --watch",
+        "watch": "lwc-services watch",
+        "watch:production": "lwc-services watch --mode=production"
+    }
+}

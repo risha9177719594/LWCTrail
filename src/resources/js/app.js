@@ -1,4 +1,4 @@
-const container = document.querySelector(".container")
+const container = document.querySelector(".container");
 const coffees = [
   { name: "Perspiciatis", image: "/resources/images/coffee1.jpg" },
   { name: "Voluptatem", image: "/resources/images/coffee2.jpg" },
@@ -9,7 +9,7 @@ const coffees = [
   { name: "Inventore", image: "/resources/images/coffee7.jpg" },
   { name: "Veritatis", image: "/resources/images/coffee8.jpg" },
   { name: "Accusantium", image: "/resources/images/coffee9.jpg" },
-]
+];
 const showCoffees = () => {
   let output = ""
   coffees.forEach(
@@ -33,4 +33,4 @@ if ("serviceWorker" in navigator) {
       .then(res => console.log("service worker registered"))
       .catch(err => console.log("service worker not registered", err))
   });
-}
+};

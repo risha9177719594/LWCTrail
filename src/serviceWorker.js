@@ -1,4 +1,4 @@
-const staticDevCoffee = "dev-coffee-site-v1"
+const staticDevCoffee = "dev-coffee-site-v1";
 const assets = [
   "/",
   "/index.html",
@@ -13,19 +13,19 @@ const assets = [
   "/resources/images/coffee7.jpg",
   "/resources/images/coffee8.jpg",
   "/resources/images/coffee9.jpg",
-]
-
+];
 self.addEventListener("install", installEvent => {
   installEvent.waitUntil(
     caches.open(staticDevCoffee).then(cache => {
-      cache.addAll(assets)
+      cache.addAll(assets);
     })
-  )
-})
+  );
+});
+
 self.addEventListener("fetch", fetchEvent => {
   fetchEvent.respondWith(
     caches.match(fetchEvent.request).then(res => {
-      return res || fetch(fetchEvent.request)
+      return res || fetch(fetchEvent.request);
     })
-  )
-})
+  );
+});

@@ -1,0 +1,41 @@
+<template>
+    <ui-card title="EventBubbling">
+        <template if:true={transactions.data}>
+            <div class="contacts">
+                <!-- recipe-contact-list-item-bubbling emits a bubbling event so a single listener on a containing element works -->
+                <div class="contact-list" ontransactionselect={handleTransactionSelect}>
+                    <template for:each={transactions.data} for:item="transaction">
+                        <recipe-transaction-list-item-bubbling
+                            key={transaction.Id}
+                            transaction={transaction}
+                        ></recipe-transaction-list-item-bubbling>
+                    </template>
+                </div>
+                <div class="contact-details">
+                    <template if:true={selectedTransaction}>
+                        <img
+                            src={selectedTransaction.Picture}
+                            alt="Profile photo"
+                        />
+                        <p>{selectedTransaction.Name}</p>
+                        <p>{selectedTransaction.Source__c}</p>
+                        <p>
+                            {selectedTransaction.Amount__c}
+                        </p>
+                        <p>
+                            {selectedTransaction.Category__c}
+                        </p>
+                    </template>
+                </div>
+            </div>
+        </template>
+        <template if:true={transactions.error}>
+            <recipe-error-panel errors={transactions.error}></recipe-error-panel>
+        </template>
+        <recipe-view-source source="recipe/transactions" slot="footer">
+            Child-to-grandparents communication using an event that bubbles and
+            is handled on a higher level element in the DOM tree. Click an item
+            in the list to see the recipe in action.
+        </recipe-view-source>
+    </ui-card>
+</template>

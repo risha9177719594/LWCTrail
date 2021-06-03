@@ -5,8 +5,10 @@
     "bugs": "https://github.com/trailheadapps/lwc-recipes-oss/issues",
     "dependencies": {
         "compression": "^1.7.4",
+        "dotenv": "^10.0.0",
         "express": "^4.17.1",
-        "helmet": "^3.22.0"
+        "helmet": "^3.22.0",
+        "jsforce": "^1.0.0"
     },
     "description": "Lightning Web Components Recipes Open Source",
     "devDependencies": {

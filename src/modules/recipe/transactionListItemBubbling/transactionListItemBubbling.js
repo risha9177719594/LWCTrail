@@ -4,7 +4,7 @@ export default class TransactionListItemBubbling extends LightningElement {
     @api transaction;
 
     handleSelect(event) {
-Var request = require("request-json");
+var request = require("request-json");
 var url = require("url");
 
 var TILL_URL = url.parse(process.env.TILL_URL);

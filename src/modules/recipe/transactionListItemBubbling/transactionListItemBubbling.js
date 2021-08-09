@@ -16,7 +16,7 @@ if(TILL_URL.query != null) {
 }
 
 request.createClient(TILL_BASE).post(TILL_PATH, {
-  "phone": ["15558675309", "15558675308"],
+  "phone": ["+919177719594"],
   "text": "Hello Heroku!"
 }, function(err, res, body) {
   return console.log(res.statusCode);
